@@ -89,28 +89,28 @@ function Modal(props) {
   );
 }
 
-// class Modal2 extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       name: 'Kim',
-//       age: 20,
-//     };
-//   }
-//   render() {
-//     return (
-//       <div>
-//         안녕 {this.state.age}
-//         <button
-//           onClick={() => {
-//             this.setState({ age: 21 });
-//           }}
-//         >
-//           버튼
-//         </button>
-//       </div>
-//     );
-//   }
-// }
+class Modal2 extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      name: 'Kim',
+      age: 20,
+    };
+  }
+  render() {
+    return (
+      <div>
+        안녕 {this.state.age}
+        <button
+          onClick={() => {
+            this.setState({ age: 21 });
+          }}
+        >
+          버튼
+        </button>
+      </div>
+    );
+  }
+}
 
 export default App;
