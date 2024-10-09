@@ -8,8 +8,8 @@ function App() {
     '강남 우동맛집',
     '파이썬 독학',
   ]);
-  let [number, setNumber] = useState(0);
   let [modal, setModal] = useState(false);
+  let [number, setNumber] = useState(0);
   return (
     <div className='App'>
       <div className='black-nav'>
@@ -24,6 +24,7 @@ function App() {
                 if (modal === true) {
                   setModal(false);
                 }
+                setNumber(i);
               }}
             >
               {title[i]}
@@ -32,17 +33,20 @@ function App() {
           </div>
         );
       })}
-      {modal === true ? <Modal /> : null}
+      {modal === true ? (
+        <Modal title={title} setTitle={setTitle} number={number} />
+      ) : null}
     </div>
   );
 }
 
-function Modal() {
+function Modal(props) {
   return (
-    <div className='modal'>
-      <h4>제목</h4>
+    <div className='modal' style={{ background: props.color }}>
+      <h4>{props.title[props.number]}</h4>
       <p>날짜</p>
       <p>상세내용</p>
+      <button>글 수정</button>
     </div>
   );
 }
