@@ -10,6 +10,7 @@ function App() {
   ]);
   let [modal, setModal] = useState(false);
   let [number, setNumber] = useState(0);
+  let [value, setValue] = useState('');
   return (
     <div className='App'>
       <div className='black-nav'>
@@ -30,9 +31,33 @@ function App() {
               {title[i]}
             </h4>
             <p>2월 17일 발행</p>
+            <button
+              onClick={() => {
+                let copy = [...title];
+                copy.splice(i, 1);
+                setTitle(copy);
+              }}
+            >
+              삭제
+            </button>
           </div>
         );
       })}
+      <input
+        type='text'
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+      />
+      <button
+        onClick={() => {
+          let copy = [...title];
+          copy.unshift(value);
+          setTitle(copy);
+        }}
+      >
+        추가
+      </button>
       {modal === true ? (
         <Modal title={title} setTitle={setTitle} number={number} />
       ) : null}
